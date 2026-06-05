@@ -22,7 +22,7 @@
 * [Day04: 基本コマンドの習得と応用](./day04.md)
 * [Day05: 今までの復習](./day05.md)
 * [day06: 基本コマンドの習得](./day06.md)
-* [day07: HomebrewとVSCodeの導入](./day07.md)
+* [day07: dockerとHomebrewとVSCodeの導入](./day07.md)
 
  **今後の予定** Day 07 以降も、新しい学びがあり次第リアルタイムで追記・リンクを追加していきます。
 
