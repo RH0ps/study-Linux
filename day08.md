@@ -11,7 +11,7 @@
 - < body> この中に言葉を入れる
 - <h 1>ここに打ち込む</h 1>
 - backup.sh 一般的にLinuxなどでファイルの定期バックアップを自動化するときに使われるファイル名
-### 自作した実際のコード
+## 自作した実際のコード
 ```bash
 #!/bin/bash
 
@@ -33,8 +33,14 @@ mkdir -p "$BACKUP_DIR"
 DATE=$(date "+%Y%m%d")
 cp "$TARGET_DIR/index.html" "$BACKUP_DIR/index_$DATE.html"
 ```
+## 自力でのDocker起動に成功
+  - ネットから `docker run --name my-nginx -d -p 8080:80 -v $(pwd):/usr/share/nginx/html nginx` というコマンドを検索して組み立てた。
+## 間違えたこと
+  - 実行時にポート競合のエラー（`port is already allocated`）や名前の重複エラー
+  - 原因 `docker stop` と `docker rm` を駆使して、裏で暴れていた古いコンテナ（`my-nginx` / `my-web-server`）を完全に停止・削除して環境をクリーンアップした。
+  - 解決 再度コマンドを実行し、エラーなしでWebサーバーを完全自力で立ち上げ、ブラウザでの表示まで成功させた。
 
 
 ## 学んだこと
 - 「裏側のサーバーを自動化で安全に守る（Ops/SRE）」というインフラ職の楽しさを、実際に手を動かすことで実感できた。
-- ウェブ上は一行しか書いていなくても、裏側は何行も書くことを知れた
+- ウェブ上は一行しか書いていなくても、裏側は何行も書くことを知れた.
