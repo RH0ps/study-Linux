@@ -33,6 +33,10 @@ mkdir -p "$BACKUP_DIR"
 DATE=$(date "+%Y%m%d")
 cp "$TARGET_DIR/index.html" "$BACKUP_DIR/index_$DATE.html"
 ```
+- crontab -e で朝9時のタイマー登録をした
+- 0 9 * * * /Users/r.hishikawa/linux-study/web-server-project/backup.sh
+- esc を押してから
+- :wq を打ちエンターで保存して終了
 ## 自力でのDocker起動に成功
   - ネットから `docker run --name my-nginx -d -p 8080:80 -v $(pwd):/usr/share/nginx/html nginx` というコマンドを検索して組み立てた。
 ## 間違えたこと
