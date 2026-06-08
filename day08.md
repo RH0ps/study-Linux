@@ -34,7 +34,7 @@ DATE=$(date "+%Y%m%d")
 cp "$TARGET_DIR/index.html" "$BACKUP_DIR/index_$DATE.html"
 ```
 - crontab -e で朝9時のタイマー登録をした
-- 0 9 * * * /Users/r.hishikawa/linux-study/web-server-project/backup.sh
+- 0 9 * * * /Users/r.h/webusaitozidouka/backup.sh
 - esc を押してから
 - :wq を打ちエンターで保存して終了
 ## Docker起動に成功
