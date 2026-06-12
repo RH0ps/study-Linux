@@ -14,3 +14,20 @@
 - プログラムのテスト実行時に無事、Slack側に以下の通知が届くことを確認しました。
 
 > ⚠️ ディスク残量警告 現在の使用率: 45%
+
+## 作成したシェルスクリプト (`disk_monitor.sh`)
+
+```bash
+#!/bin/bash
+
+# セキュリティのため実際のWebhook URLは隠しています
+WEBHOOK_URL="https://slack.com"
+THRESHOLD=80
+
+USAGE=(df -h | grep '/' | awk '{print \$5}' | tr -d '%')
+
+if [ "USAGE" -gt "THRESHOLD" ]; then
+    PAYLOAD="{\"text\":\"⚠️ ディスク残量警告 現在の使用率: \${USAGE}%\"}"
+    curl -X POST -H "Content-type: application/json" --data "PAYLOAD" "WEBHOOK_URL"
+fi
+```
