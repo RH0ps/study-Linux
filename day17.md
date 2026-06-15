@@ -29,9 +29,6 @@ if [ "$USAGE" -gt "$THRESHOLD" ]; then
     /usr/bin/curl -X POST -H "Content-type: application/json" --data "$PAYLOAD" "$WEBHOOK_URL"
 fi
 ```
-
----
-
 ## 間違えたこと
 
 - 新機能（容量監視）を追記した際、環境や構文の複数の罠に抵触し、システム全体がロックされた。
