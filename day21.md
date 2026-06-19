@@ -39,10 +39,14 @@
 
 - 古いバックアップファイルが自動削除されることを確認できた。
 
-本番
-```bash
-find "$BACKUP_DIR" -name "index_*.html" -mtime +2 -print -delete >> "$BACKUP_DIR/backup.log"
-```
+実際にbackup.shへ追加した処理
+
+    find "$BACKUP_DIR" -name "index_*.html" -mtime +7 -print -delete >> "$BACKUP_DIR/backup.log"
+
+- -mtime +7
+  - 7日以上古いバックアップファイルを対象にする
+  - 一定期間を過ぎた不要なバックアップを自動削除する設定
+
 ### Docker操作コマンド短縮
 変更前
 
