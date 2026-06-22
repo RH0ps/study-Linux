@@ -45,8 +45,8 @@ git commit -m "resolve merge conflicts"
 git push -u origin main
 ```
 ## 間違えたこと・苦戦したこと
-- push時にfetch firstエラーが出た
-- unrelated historiesの意味が最初わからなかった
+- push時に`fetch first`エラーが出た
+- `unrelated histories`の意味が最初わからなかった
 - コンフリクトが複数ファイルで同時発生して混乱した
 - GitHubとローカルの関係（履歴の概念）を理解するのに時間がかかった
 
