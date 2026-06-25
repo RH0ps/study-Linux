@@ -76,6 +76,8 @@
 * [Day24: Gitによる学習記録管理の導入＋GitHub同期トラブル解決](./day24.md)
 * [Day25: Git履歴・Docker JST化](./day25.md)
 * [Day26: Linuxユーザー管理・Docker環境での実践](./day26.md)
+* [Day27-1: Linuxパーミッション・ユーザー管理・sudo設定](./day27-1.md)
+* [Day27-2: Docker監視システム構築（Slack通知 + cron + 状態管理）](./day27-2.md)
 
 ## 今後取り組む予定
 - Linuxネットワーク基礎
