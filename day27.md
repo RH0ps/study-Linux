@@ -1,0 +1,171 @@
+# Linux学習記録 Day27
+# Linuxパーミッション・ユーザー管理・sudo設定
+## 今日学んだこと
+**Linuxの権限管理とユーザー運用の仕組み**
+- Linuxではユーザー・グループ・パーミッションによってアクセス制御されることを理解
+- `chmod`でファイル権限変更、`chown`で所有者変更を行う方法を実践
+- ユーザー名変更やグループ管理を行い、Linuxユーザー管理の仕組みを理解
+- 一般ユーザーにsudo権限を付与し、必要な時だけroot権限を使う運用方法を学習
+- 実際のサーバー運用ではrootを常用せず、一般ユーザー + sudoで管理することを理解
+## 実践したこと
+### ファイル権限の確認・変更（chmod）
+- `secret.txt`を作成し、所有者と権限を確認
+```bash
+touch secret.txt
+ls -l secret.txt
+```
+- `chmod`を使ってファイル権限を変更
+```bash
+chmod 755 secret.txt
+ls -l secret.txt
+```
+- 権限表示の意味を確認
+```bash
+r = read（読み取り）
+w = write（書き込み）
+x = execute（実行）
+```
+- 数字表記の意味を理解
+```bash
+7 = rwx
+6 = rw-
+5 = r-x
+4 = r--
+```bash
+## 権限によるアクセス制御の確認
+- `chmod 600`に変更し、所有者のみ操作可能な状態を作成
+```bash
+chmod 600 secret.txt
+```bash
+- testuserへ切り替えてアクセス確認
+```bash
+su - testuser
+cat /root/secret.txt
+```
+- 権限不足による`Permission denied`を確認
+- Linuxではファイル権限によってアクセスできる範囲が変わることを理解
+## 所有者変更（chown）
+- ファイル所有者をrootからtestuserへ変更
+```bash
+chown testuser /root/secret.txt
+```bash
+- 所有者が変更されることを確認
+```bash
+ls -l /root/secret.txt
+```bash
+## ユーザー名・グループ変更
+- testuserのユーザー名を変更
+```bash
+usermod -l R.H testuser
+```
+- 大文字・小文字の違いによるユーザー名変更も確認
+  - 小文字の方が打ちやすいので最終的にユーザー名をr.hへ変更
+```bash
+usermod -l r.h R.H
+```
+- ホームディレクトリを変更
+```bash
+usermod -d /home/r.h -m r.h
+```
+- グループ名を変更
+```bash
+groupmod -n r.h testuser
+```
+- ユーザーとグループ情報を確認
+```bash
+id r.h
+```
+## sudo設定
+- r.hユーザーをsudoグループへ追加
+```bash
+usermod -aG sudo r.h
+```
+- sudoグループ追加を確認
+```bash
+id r.h
+```
+- r.hユーザーでsudoを実行
+```bash
+su - r.h
+sudo apt update
+```
+- 一般ユーザーから一時的にroot権限で管理操作できることを確認
+## 間違えたこと・ハマった点
+- `chmod 755`は実行権限を付ける設定で、秘密ファイルには通常`600`が適していることを理解
+- `su -r.h`と入力し、`-r`オプションとして認識されエラーになった
+正しくは
+```bash
+su - r.h
+```
+- sudoでrootのパスワードを入力して失敗
+- sudoで求められるパスワードは実行しているユーザー（r.h）のパスワードだと理解
+- 一般ユーザーで`groupmod`を実行して権限不足エラー
+```bash
+Permission denied
+cannot lock /etc/group
+```bash
+- root権限が必要な操作と一般ユーザーでできる操作の違いを理解
+## 覚えたコマンド
+### 権限管理
+```bash
+chmod 755 file
+# 所有者・グループ・その他ユーザーの権限を変更
+chmod 600 file
+# 所有者のみ読み書き可能に変更
+```
+- chmod 755では所有者は読み書き実行、それ以外は読み取り・実行可能になることを確認
+### 所有者変更
+```bash
+chown user file
+# ファイル所有者変更
+```
+### ユーザー管理
+```bash
+usermod -l 新しい名前 古い名前
+# ユーザー名変更
+
+usermod -d /home/name -m name
+# ホームディレクトリ変更
+
+usermod -aG sudo user
+# sudoグループへ追加
+```
+### グループ管理
+```bash
+groupmod -n 新しい名前 古い名前
+# グループ名変更
+```
+### 確認コマンド
+```bash
+whoami
+# 現在のユーザー確認
+
+id user
+# UID・GID・所属グループ確認
+
+ls -l
+# 権限・所有者確認
+```
+### ユーザー切り替え
+```bash
+su - user
+# 指定ユーザーへ切り替え
+```
+### パスワード設定
+```bash
+passwd user
+# ユーザーのパスワード設定
+```
+### sudo
+```bash
+sudo command
+# 一時的に管理者権限で実行
+```
+## 学んだこと
+- Linuxではユーザー・グループ・権限によってアクセス制御される
+- `chmod`は権限、`chown`は所有者を管理する
+- rootは全権限を持つため、普段は一般ユーザー + sudoで運用する
+- UID/GIDによってLinux内部ではユーザー管理される
+- sudoによって必要な時だけ管理者権限を使用できる
+- Docker環境でも実際のLinuxサーバーに近いユーザー管理を再現できる
+- Linuxでは「誰が」「どのグループで」「どんな権限を持つか」でアクセス制御される
