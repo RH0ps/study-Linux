@@ -78,6 +78,8 @@
 * [Day26: Linuxユーザー管理・Docker環境での実践](./day26.md)
 * [Day27-1: Linuxパーミッション・ユーザー管理・sudo設定](./day27-1.md)
 * [Day27-2: Docker監視システム構築（Slack通知 + cron + 状態管理）](./day27-2.md)
+* [Day28: Docker環境の再構築とdocker-compose導入](./day28.md)
+
 
 ## 今後取り組む予定
 - Linuxネットワーク基礎
