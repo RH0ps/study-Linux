@@ -79,6 +79,7 @@
 * [Day27-1: Linuxパーミッション・ユーザー管理・sudo設定](./day27-1.md)
 * [Day27-2: Docker監視システム構築（Slack通知 + cron + 状態管理）](./day27-2.md)
 * [Day28: Docker環境の再構築とdocker-compose導入](./day28.md)
+* [Day29: ディスク使用量監視システムの改善（Slack通知・復旧通知実装）](./day29.md)
 
 
 ## 今後取り組む予定
