@@ -80,7 +80,7 @@
 * [Day27-2: Docker監視システム構築（Slack通知 + cron + 状態管理）](./day27-2.md)
 * [Day28: Docker環境の再構築とdocker-compose導入](./day28.md)
 * [Day29: ディスク使用量監視・Slack通知システム構築](./day29.md)
-* [Day30: ronによるバックアップ自動化とSlack通知改善](./day30.md)
+* [Day30-1: ronによるバックアップ自動化とSlack通知改善](./day30-1.md)
 
 ## 今後取り組む予定
 - Linuxネットワーク基礎
