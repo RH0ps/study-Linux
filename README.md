@@ -84,10 +84,13 @@
 * [Day30-2: ディスク監視システムの状態管理化とSlack通知の最適化](./day30-2.md)
 * [Day31-1: Gitリポジトリ再構築とプロジェクト構造整理（過去最大の環境トラブル解決）](./day31-1.md)
 * [Day31-2: Docker + cron + ops-lab 再構築と運用設計の改善](./day31-2.md)
+* [Day32: ops-lab CLI統合とアーキテクチャ再設計](./day32.md)
+* [Day33: ops-lab監視システム機能改善・本番環境移行・Docker構成修正・動作確認](./day33.md)
+
 
 ## 今後取り組む予定
 - Linuxネットワーク基礎
-  - IPアドレス
+  - IPドレス
   - ポート
   - DNS
   - HTTP/HTTPS
