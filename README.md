@@ -86,6 +86,7 @@
 * [Day31-2: Docker + cron + ops-lab 再構築と運用設計の改善](./day31-2.md)
 * [Day32: ops-lab CLI統合とアーキテクチャ再設計](./day32.md)
 * [Day33: ops-lab監視システム機能改善・本番環境移行・Docker構成修正・動作確認](./day33.md)
+* [Day34: ops-lab プロジェクト構成の整理と Docker ボリューム管理](./day34.md)
 
 
 ## 今後取り組む予定
