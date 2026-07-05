@@ -89,7 +89,7 @@
 * [Day34: ops-lab プロジェクト構成の整理と Docker ボリューム管理](./day34.md)
 * [Day35: ops-lab：監視設計（logs / metrics / state）とPrometheus形式の理解](./day35.md)
 * [Day36: Docker環境の修正とバックアップシステムの改善](./day36.md)
-
+* [Day37: 復元システム強化・CLI運用設計・安全性改善](./day37.md)
 
 
 ## 今後取り組む予定
