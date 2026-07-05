@@ -1,4 +1,3 @@
-```bash
 # Linux学習記録 Day34
 # ops-lab プロジェクト構成の整理と Docker ボリューム管理
 ## 実践内容
