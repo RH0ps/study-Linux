@@ -14,37 +14,37 @@
 - 復元前にスナップショットを自動保存
 - diffで変更差分を確認してから復元実行
 - rollbackファイルで復旧可能な設計に変更
-000
+```bash
 cp -a "$LATEST" "$TARGET_FILE"
 diff "$TARGET_FILE" "$LATEST"
-000
+```
 # 安全性強化（復元システム）
 - 不正パス（.. や ~）を拒否するチェック追加
 - バックアップが古すぎる場合は復元禁止（7日制限）
 - LOCKファイルで同時実行防止
 - FORCEモードで手動確認スキップ可能
-000
+```bash
 if [ -f "$LOCK_FILE" ]; then
   echo "Restore already running"
   exit 1
 fi
-000
+```
 # データ整合性チェック
 - SHA256で復元後のデータ確認
 - バックアップと復元後ファイルの一致検証
 - 不一致なら自動ロールバック
-000
+```bash
 sha256sum "$LATEST"
 sha256sum "$TARGET_FILE"
-000
+```
 # ログ・履歴管理強化
 - 通常ログ（restore.log）
 - 履歴ログ（restore_history.log）
 - JSONログで機械的に扱える形式を追加
 - カウント管理で復元回数を記録
-000
+```bash
 echo "{\"time\":\"$(date +%s)\",\"file\":\"$(basename "$LATEST")\"}" >> log.json
-000
+```
 # =========================
 # 間違えたこと
 # =========================

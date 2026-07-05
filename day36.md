@@ -30,11 +30,11 @@
 - backup_failure_countが保持されることを確認した。
 - backup.promに以下のメトリクスが出力されることを確認した。
 
-000
+```bash
 backup_success_total
 backup_failure_total
 backup_last_timestamp
-000
+```
 
 - バックアップファイルの作成、ログ出力、世代管理、Slack通知が正常に動作することを確認した。
 
