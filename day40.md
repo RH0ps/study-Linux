@@ -25,15 +25,15 @@
 
 `ops_check_all`を追加した直後は、
 
-000
+```bash
 ops_check_all
-000
+```
 
 を実行しても
 
-000
+```bash
 zsh: command not found: ops_check_all
-000
+```
 
 と表示され、コマンドを実行できませんでした。
 
@@ -47,9 +47,9 @@ zsh: command not found: ops_check_all
 
 最終的に
 
-000
+```bash
 source ./ops_cli.sh
-000
+```
 
 でCLIを読み込み直したところ、関数が正常に登録され、`ops_check_all`を実行できることを確認しました。
 
@@ -81,7 +81,7 @@ source ./ops_cli.sh
 - Logs Directory
 
 最終的に
-000
+```bash
 ===== Container =====
 NAME      IMAGE             COMMAND                   SERVICE   CREATED      STATUS                PORTS
 ops-lab   ops-lab-ops-lab   "/home/r.h/docker/en…"   ops-lab   2 days ago   Up 2 days (healthy)   
@@ -113,7 +113,7 @@ PASS : 4
 FAIL : 0
 
 System Status : HEALTHY
-000
+```
 と表示され、すべて正常に動作することを確認しました。
 
 ## 振り返り
