@@ -93,6 +93,9 @@
 * [Day38: restore.shの改善と安全な復元処理](./day38.md)
 * [Day39: ops_cli.shのリファクタリングとモジュール化](./day39.md)
 * [Day40: ops_check_allによるセルフヘルスチェック機能の実装](./day40.md)
+* [Day41-1: ops-labのCLI化の進行](./day40-1.md)
+* [Day41-2: シェル設定整理・起動時エラー調査](./day40-2.md)
+
 
 
 ## 今後取り組む予定
