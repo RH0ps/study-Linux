@@ -95,6 +95,8 @@
 * [Day40: ops_check_allによるセルフヘルスチェック機能の実装](./day40.md)
 * [Day41-1: ops-labのCLI化の進行](./day41-1.md)
 * [Day41-2: シェル設定整理・起動時エラー調査](./day41-2.md)
+* [Day42: ops-lab CLIの機能改善](./day42.md)
+
 
 
 ## 今後取り組む予定
