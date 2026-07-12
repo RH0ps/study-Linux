@@ -97,6 +97,7 @@
 * [Day41-2: シェル設定整理・起動時エラー調査](./day41-2.md)
 * [Day42: ops-lab CLIの機能改善](./day42.md)
 * [Day43: Docker環境改善とGitHub ActionsによるCI構築](./day43.md)
+* [Day44: Restoreスクリプトの運用性向上と実機検証](./day44.md)
 
 
 
