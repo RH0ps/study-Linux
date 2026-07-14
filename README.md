@@ -152,6 +152,10 @@ Linux・Docker環境で構築している運用自動化プロジェクト。
 * [Day43: Docker環境改善とGitHub ActionsによるCI構築](./day43.md)
 * [Day44: Restoreスクリプトの運用性向上と実機検証](./day44.md)
 * [Day45: CPU Monitor のOS差分対応・Linux環境検証](./day45.md)
+* [Day46: ログ管理の共通化とログローテーションの実装](./day46.md)
+
+
+
 
 ---
 
