@@ -155,6 +155,7 @@ Linux・Docker環境で構築している運用自動化プロジェクト。
 * [Day46: ログ管理の共通化とログローテーションの実装](./day46.md)
 * [Day47: Health Check機能追加とCLI運用改善](./day47.md)
 * [Day48: restore.shの完成とCPU監視スクリプトの改善](./day48.md)
+* [Day49: スクリプト全体の品質改善](./day49.md)
 
 
 
