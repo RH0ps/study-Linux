@@ -156,6 +156,7 @@ Linux・Docker環境で構築している運用自動化プロジェクト。
 * [Day47: Health Check機能追加とCLI運用改善](./day47.md)
 * [Day48: restore.shの完成とCPU監視スクリプトの改善](./day48.md)
 * [Day49: スクリプト全体の品質改善](./day49.md)
+* [Day50: Memory MonitorとProcess Monitorを実装して監視対象を拡充](./day50.md)
 
 
 
