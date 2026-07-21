@@ -159,6 +159,9 @@ Linux・Docker環境で構築している運用自動化プロジェクト。
 * [Day50: Memory MonitorとProcess Monitorを実装して監視対象を拡充](./day50.md)
 * [Day51: 監視ダッシュボードCLIの実装](./day51.md)
 * [Day52: バックアップ機能の拡張と世代管理改善](./day52.md)
+* [Day53: restore.sh機能の安全性向上とプロジェクト整理](./day53.md)
+
+
 
 
 ---
