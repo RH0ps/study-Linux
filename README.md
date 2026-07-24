@@ -161,6 +161,8 @@ Linux・Docker環境で構築している運用自動化プロジェクト。
 * [Day52: バックアップ機能の拡張と世代管理改善](./day52.md)
 * [Day53: restore.sh機能の安全性向上とプロジェクト整理](./day53.md)
 * [Day54: health_check.shの機能強化とシステム全体の状態判定追加](./day54-1.md)
+* [Day55: GitHub ActionsにBatsテストを追加しCIを強化](./day55.md)
+* [Day56: backup.sh・restore.shの改善とエラー処理の修正](./day56.md)
 
 
 
