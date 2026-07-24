@@ -1,0 +1,91 @@
+# Linux学習記録 Day54
+## health_check.shの機能強化とシステム全体の状態判定追加
+## 実践内容
+
+health_check.shを改善し、システム全体の状態を一括確認できるHealth Checkを実装。
+
+Dockerコンテナの状態を確認し、コンテナが停止している場合はCRITICAL、Dockerコマンドが利用できない場合はUNKNOWNとして判定する処理を追加。
+
+監視スクリプトの存在確認対象を整理し、以下のスクリプトを実行権限付きで確認するように変更。
+
+- disk_monitor.sh
+- cpu_monitor.sh
+- memory_monitor.sh
+- process_monitor.sh
+- backup.sh
+- restore.sh
+- log_rotate.sh
+- health_check.sh
+
+メトリクス確認対象も整理し、以下のPrometheusメトリクスファイルを確認するように統一。
+
+- cpu.prom
+- disk.prom
+- memory.prom
+- process.prom
+- backup.prom
+
+ログ確認対象も整理し、各監視・バックアップ・復元・ログローテーションのログファイルを確認するように変更。
+
+stateディレクトリ内の状態ファイルを読み込み、以下の監視状態を一覧表示する機能を追加。
+
+- Docker
+- CPU
+- Disk
+- Memory
+- Process
+
+各状態を総合判定し、システム全体のHealthを以下の優先順位で判定する処理を実装。
+
+- CRITICAL
+- WARN
+- UNKNOWN
+- OK
+
+総合判定に応じて終了コードを返すように改善。
+
+- OK：0
+- WARN：1
+- CRITICAL：2
+- UNKNOWN：3
+
+ShellCheckおよびBash構文チェックを実施し、警告・エラーが発生しないことを確認。
+
+Health Check実行結果。
+
+- Docker：OK
+- CPU：CRITICAL
+- Disk：OK
+- Memory：OK
+- Process：OK
+
+総合判定はCRITICALとなり、終了コード2が返されることを確認。
+
+終了コードを返すことで、今後ほかのスクリプトやCI/CDからHealth Check結果を判定できる構成となった。
+
+## 間違えたこと
+
+- Docker状態をOverall Healthへ反映する処理を実装したが、最初は総合判定へ含めておらず、表示内容と判定結果が一致しない構成になっていた。
+- Monitor StatusへDocker状態を表示していなかったため、総合判定との整合性を見直した。
+
+## 学んだこと
+
+- Health Checkは各項目の存在確認だけではなく、システム全体の状態を総合的に判定できることが重要である。
+- stateディレクトリ内の状態ファイルを利用することで、複数の監視スクリプトの結果を一元管理できる。
+- 終了コードを状態ごとに分けることで、他のスクリプトやCI/CDからHealth Check結果を利用しやすくなる。
+
+## 覚えたこと・コマンド
+
+```bash
+# Health Check実行
+./health_check.sh
+
+# 終了コード確認
+echo $?
+
+# ShellCheck
+shellcheck -x health_check.sh
+
+# Bash構文確認
+bash -n health_check.sh
+```
